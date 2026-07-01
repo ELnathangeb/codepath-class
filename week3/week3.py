@@ -176,23 +176,85 @@
 # print(manage_stage_changes(["Schedule X", "Schedule Y", "Cancel", "Cancel", "Schedule Z"])) 
 
 
-from collections import deque
-def process_performance_requests(requests):
-    order = []
+# from collections import deque
+# def process_performance_requests(requests):
+#     requests.sort(reverse=True)
 
-    queue = deque()
+#     queue = deque(requests)
+#     result = []
 
-    for number, word in requests:
-        if 
+#     while queue:
+#         priority, performance = queue.popleft()
+#         result.append(performance)
+
+#     return result
+# print(process_performance_requests([(3, 'Dance'), (5, 'Music'), (1, 'Drama')]))
+# print(process_performance_requests([(2, 'Poetry'), (1, 'Magic Show'), (4, 'Concert'), (3, 'Stand-up Comedy')]))
+# print(process_performance_requests([(1, 'Art Exhibition'), (3, 'Film Screening'), (2, 'Workshop'), (5, 'Keynote Speech'), (4, 'Panel Discussion')]))
+
+
+
+# def collect_festival_points(points):
+#     total = 0
+
+#     while points:
+#         x = points.pop()
+#         total += x
+#     return total
+    
+
+
+# print(collect_festival_points([5, 8, 3, 10])) 
+# print(collect_festival_points([2, 7, 4, 6])) 
+# print(collect_festival_points([1, 5, 9, 2, 8])) 
+
+
+# def booth_navigation(clues):
+#     stack = []
+
+#     for i in clues:
+#         if i == "back":
+#             if stack:
+#                 stack.pop()
+#         else:
+#             stack.append(i)
+#     return stack
 
 
 
 
+# clues = [1, 2, "back", 3, 4]
+# print(booth_navigation(clues)) 
+
+# clues = [5, 3, 2, "back", "back", 7]
+# print(booth_navigation(clues)) 
+
+# clues = [1, "back", 2, "back", "back", 3]
+# print(booth_navigation(clues)) 
+
+
+def merge_schedules(schedule1, schedule2):
+    final = []
+    i = 0
+    j = 0
+    while i < len(schedule1) and j < len(schedule2):
+        final.append(schedule1[i])
+        final.append(schedule2[j])
+        i += 1
+        j += 1
+    while i < len(schedule1):
+        final.append(schedule1[i])
+        i += 1
+    while j < len(schedule2):
+        final.append(schedule2[j])
+        j += 1
+
+    return "".join(final)
 
 
 
 
+print(merge_schedules("abc", "pqr")) 
+print(merge_schedules("ab", "pqrs")) 
+print(merge_schedules("abcd", "pq")) 
 
-print(process_performance_requests([(3, 'Dance'), (5, 'Music'), (1, 'Drama')]))
-print(process_performance_requests([(2, 'Poetry'), (1, 'Magic Show'), (4, 'Concert'), (3, 'Stand-up Comedy')]))
-print(process_performance_requests([(1, 'Art Exhibition'), (3, 'Film Screening'), (2, 'Workshop'), (5, 'Keynote Speech'), (4, 'Panel Discussion')]))
